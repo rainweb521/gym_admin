@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+    <style>
+        a{
+            color: #005980;
+        }
+        .widget-small{
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: center;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+        }
+        .widget-small .fa{
+            float: left;
+            width: 40%;
+            line-height: 80px;
+            color: #FFFFFF;
+        }
+        .widget-user .fa{
+            background-color: #029789;
+        }
+        .widget-visit .fa{
+            background-color: #17a2b8;
+        }
+        .widget-message .fa{
+            background-color: #fbad4c;
+        }
+        .widget-like .fa{
+            background-color: #ff646d;
+        }
+        .widget-small-info{
+            float: left;
+            text-align: left;
+            width: 40%;
+            margin-left: 20px;
+            margin-top: 18px;
+            line-height: 24px;
+        }
+        .widget-small-info h4{
+            font-size: 18px;
+        }
+        .widget-small-info span{
+            font-size: 16px;
+        }
+        .project-introduce{
+            min-height: 466px;
+        }
+        .project-introduce h4{
+            font-weight: bold;
+            margin-top: 12px;
+            margin-bottom: 8px;
+        }
+        .project-introduce li{
+            list-style: decimal;
+            margin-left: 28px;
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .alert-info {
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+    </style>
+</head>
+<body class="timo-layout-page">
+<div class="layui-row layui-col-space15">
+
+</div>
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md8">
+        <div class="layui-card">
+            <div class="layui-card-header">项目介绍</div>
+            <div class="layui-card-body project-introduce">
+                <blockquote class="layui-elem-quote layui-quote-nm">
+                    健身房管理系统，基于SpringBoot2.0 + Spring Data Jpa + Thymeleaf + Shiro 开发，采用分模块的方式便于开发和维护。
+                </blockquote>
+                <div>
+                    <h4>技术选型</h4>
+                    <ol>
+                        <li>后端技术：SpringBoot + Spring Data Jpa + Thymeleaf + Shiro + EhCache</li>
+                        <li>前端技术：Layui + Jquery + zTree + Font-awesome</li>
+                    </ol>
+                </div>
+                <div>
+                    <h4>功能列表</h4>
+                    <ol>
+                        <li>用户管理：用于管理后台系统的用户，可进行增删改查等操作。</li>
+                        <li>角色管理：分配权限的最小单元，通过角色给用户分配权限。</li>
+                        <li>菜单管理：用于配置系统菜单，同时也作为权限资源。</li>
+                        <li>部门管理：通过不同的部门来管理和区分用户。</li>
+                        <li>会员卡管理：对已经注册的用户，可以支持开卡及余额充值。</li>
+                        <li>课程管理：对系统的课程进行管理，并指定课程教练，价格等。</li>
+                        <li>私人课程：用户可通过此菜单选购课程，在已选购的课程中进行评价。</li>
+                        <li>器材管理：维护健身房现有的器材设施，及时记录保修。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row layui-col-space15">
+
+        </div>
+    </div>
+
+</div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>
+

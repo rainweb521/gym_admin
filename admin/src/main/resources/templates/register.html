@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+    <title>健身管理系统-登录</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+</head>
+<body class="layui-layout-login">
+<div class="login-bg">
+    <div class="cover"></div>
+</div>
+<div class="login-content" >
+    <h1 class="login-box-title"><i class="fa fa-fw fa-user"></i>登录</h1>
+    <form class="layui-form" th:action="@{/register}" method="post">
+        <input type="hidden" value="6" name="dept" id="dept">
+        <div class="layui-form-item">
+            <label class="layui-icon " for="username"></label>
+            <input class="layui-input" type="text" name="username" id="username" placeholder="用户名">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon " for="password"></label>
+            <input class="layui-input" type="password" name="password" id="password" placeholder="密码">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon " for="password"></label>
+            <input class="layui-input" type="password" name="confirm" id="confirm" placeholder="密码">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon " for="username"></label>
+            <input class="layui-input" type="text" name="nickname" id="nickname" placeholder="用户昵称">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon " for="username"></label>
+            <input class="layui-input" type="text" name="phone" id="phone" placeholder="电话号码">
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon " for="username"></label>
+            <input class="layui-input" type="text" name="email" id="email" placeholder="邮箱">
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-inline">
+                <input type="radio" name="sex" value="1" title="男" checked><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><div>男</div></div>
+                <input type="radio" name="sex" value="2" title="女" ><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><div>女</div></div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-icon " for="username"></label>
+            <input class="layui-input" type="text" name="remark" id="remark" placeholder="备注">
+        </div>
+        <button type="submit" class="layui-btn layui-btn-fluid ajax-register"><i class="fa fa-sign-in fa-lg fa-fw"></i> 注册</button>
+        <br><br>
+        <button type="button" class="layui-btn layui-btn-fluid"  onclick="window.location = '/login';"><i class="fa fa-sign-in fa-lg fa-fw"></i> 登陆</button>
+    </form>
+    <div class="layui-layer-loading login-page-loading"><div class="layui-layer-content"></div></div>
+</div>
+<script th:replace="/common/template :: script"></script>
+<script th:src="@{/js/login.js}" charset="utf-8"></script>
+</body>
+</html>

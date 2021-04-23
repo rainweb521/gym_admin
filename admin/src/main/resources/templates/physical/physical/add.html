@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="layui-form timo-compile">
+    <form th:action="@{/physical/physical/save}">
+        <input type="hidden" name="id" th:if="${physical}" th:value="${physical.id}">
+        <div class="layui-form-item">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="title" placeholder="请输入标题" th:value="${physical?.title}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">身高</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="height" placeholder="请输入身高" th:value="${physical?.height}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">体重</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="weight" placeholder="请输入体重" th:value="${physical?.weight}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">bmi</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="bmi" placeholder="请输入bmi" th:value="${physical?.bmi}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">脂肪</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="fat" placeholder="请输入脂肪" th:value="${physical?.fat}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">肌肉</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="muscle" placeholder="请输入肌肉" th:value="${physical?.muscle}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">水分</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="moisture" placeholder="请输入水分" th:value="${physical?.moisture}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">蛋白质</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="protein" placeholder="请输入蛋白质" th:value="${physical?.protein}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">骨量</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="bone" placeholder="请输入骨量" th:value="${physical?.bone}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="sex" placeholder="请输入性别" th:value="${physical?.sex}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">年龄</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="age" placeholder="请输入年龄" th:value="${physical?.age}">
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容" class="layui-textarea" name="remark">[[${physical?.remark}]]</textarea>
+            </div>
+        </div>
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn ajax-submit"><i class="fa fa-check-circle"></i> 保存</button>
+            <button class="layui-btn btn-secondary close-popup"><i class="fa fa-times-circle"></i> 关闭</button>
+        </div>
+    </form>
+</div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

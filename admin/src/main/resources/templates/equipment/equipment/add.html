@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="layui-form timo-compile">
+    <form th:action="@{/equipment/equipment/save}">
+        <input type="hidden" name="id" th:if="${equipment}" th:value="${equipment.id}">
+        <div class="layui-form-item">
+            <label class="layui-form-label">器材名称</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="name" placeholder="请输入器材名称" th:value="${equipment?.name}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">器材描述</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="description" placeholder="请输入器材描述" th:value="${equipment?.description}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">器材编号</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="code" placeholder="请输入器材编号" th:value="${equipment?.code}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">器材类型</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="type" placeholder="请输入器材类型" th:value="${equipment?.type}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">损坏等级</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="damage" placeholder="请输入损坏等级" th:value="${equipment?.damage}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">制造商</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="manufacturer" placeholder="请输入制造商" th:value="${equipment?.manufacturer}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">制造商电话</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="phone" placeholder="请输入制造商电话" th:value="${equipment?.phone}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">摆放位置</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="address" placeholder="请输入摆放位置" th:value="${equipment?.address}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">生产日期</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="product" placeholder="请输入生产日期" th:value="${equipment?.product}">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容" class="layui-textarea" name="remark">[[${equipment?.remark}]]</textarea>
+            </div>
+        </div>
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn ajax-submit"><i class="fa fa-check-circle"></i> 保存</button>
+            <button class="layui-btn btn-secondary close-popup"><i class="fa fa-times-circle"></i> 关闭</button>
+        </div>
+    </form>
+</div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

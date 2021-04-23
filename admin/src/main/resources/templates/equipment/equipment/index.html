@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:mo="https://gitee.com/aun/Timo">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body class="timo-layout-page">
+    <div class="layui-card">
+        <div class="layui-card-header timo-card-header">
+            <span><i class="fa fa-bars"></i> 器材管理管理</span>
+            <i class="layui-icon layui-icon-refresh refresh-btn"></i>
+        </div>
+        <div class="layui-card-body">
+            <div class="layui-row timo-card-screen">
+                <div class="pull-left layui-form-pane timo-search-box">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block timo-search-status">
+                            <select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS" mo-selected="${param.status}"></select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">器材名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" th:value="${param.name}" placeholder="请输入器材名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">器材类型</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="type" th:value="${param.type}" placeholder="请输入器材类型" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn timo-search-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="pull-right screen-btn-group">
+                    <button class="layui-btn open-popup" data-title="添加器材管理" th:attr="data-url=@{/equipment/equipment/add}" data-size="auto">
+                        <i class="fa fa-plus"></i> 添加</button>
+                    <div class="btn-group">
+                        <button class="layui-btn">操作<span class="caret"></span></button>
+                        <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                            <dd><a class="ajax-status" th:href="@{/equipment/equipment/status/ok}">启用</a></dd>
+                            <dd><a class="ajax-status" th:href="@{/equipment/equipment/status/freezed}">冻结</a></dd>
+                            <dd><a class="ajax-status" th:href="@{/equipment/equipment/status/delete}">删除</a></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="timo-table-wrap">
+                <table class="layui-table timo-table">
+                    <thead>
+                    <tr>
+                        <th class="timo-table-checkbox">
+                            <label class="timo-checkbox"><input type="checkbox">
+                                <i class="layui-icon layui-icon-ok"></i></label>
+                        </th>
+                        <th>器材名称</th>
+                        <th>器材描述</th>
+                        <th>器材编号</th>
+                        <th>器材类型</th>
+                        <th>损坏等级</th>
+                        <th>制造商</th>
+                        <th>制造商电话</th>
+                        <th>摆放位置</th>
+                        <th>生产日期</th>
+                        <th>状态</th>
+                        <th>创建时间</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item:${list}">
+                        <td><label class="timo-checkbox"><input type="checkbox" th:value="${item.id}">
+                            <i class="layui-icon layui-icon-ok"></i></label></td>
+                        <td th:text="${item.name}">器材名称</td>
+                        <td th:text="${item.description}">器材描述</td>
+                        <td th:text="${item.code}">器材编号</td>
+                        <td th:text="${item.type}">器材类型</td>
+                        <td th:text="${item.damage}">损坏等级</td>
+                        <td th:text="${item.manufacturer}">制造商</td>
+                        <td th:text="${item.phone}">制造商电话</td>
+                        <td th:text="${item.address}">摆放位置</td>
+                        <td th:text="${item.product}">生产日期</td>
+                        <td th:text="${#dicts.dataStatus(item.status)}">数据状态</td>
+                        <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd HH:mm:ss')}">创建时间</td>
+                        <td th:text="${item.remark}">备注</td>
+                        <td>
+                            <a class="open-popup" data-title="编辑器材管理" th:attr="data-url=@{'/equipment/equipment/edit/'+${item.id}}" data-size="auto" href="#">编辑</a>
+                            <a class="open-popup" data-title="详细信息" th:attr="data-url=@{'/equipment/equipment/detail/'+${item.id}}" data-size="800,600" href="#">详细</a>
+                            <a class="ajax-get" data-msg="您是否确认删除" th:href="@{/equipment/equipment/status/delete(ids=${item.id})}">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:replace="/common/fragment :: page"></div>
+        </div>
+    </div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

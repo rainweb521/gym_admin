@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="timo-detail-page">
+        <div class="timo-detail-title">基本信息</div>
+        <table class="layui-table timo-detail-table">
+            <colgroup>
+                <col width="100px"><col>
+                <col width="100px"><col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>主键ID</th>
+                    <td th:text="${equipment.id}"></td>
+                    <th>器材名称</th>
+                    <td th:text="${equipment.name}"></td>
+                </tr>
+                <tr>
+                    <th>器材描述</th>
+                    <td th:text="${equipment.description}"></td>
+                    <th>器材编号</th>
+                    <td th:text="${equipment.code}"></td>
+                </tr>
+                <tr>
+                    <th>器材类型</th>
+                    <td th:text="${equipment.type}"></td>
+                    <th>损坏等级</th>
+                    <td th:text="${equipment.damage}"></td>
+                </tr>
+                <tr>
+                    <th>制造商</th>
+                    <td th:text="${equipment.manufacturer}"></td>
+                    <th>制造商电话</th>
+                    <td th:text="${equipment.phone}"></td>
+                </tr>
+                <tr>
+                    <th>摆放位置</th>
+                    <td th:text="${equipment.address}"></td>
+                    <th>生产日期</th>
+                    <td th:text="${equipment.product}"></td>
+                </tr>
+                <tr>
+                    <th>更新者</th>
+                    <td th:text="${equipment.updateBy?.nickname}"></td>
+                    <th>创建者</th>
+                    <td th:text="${equipment.createBy?.nickname}"></td>
+                </tr>
+                <tr>
+                    <th>更新时间</th>
+                    <td th:text="${#dates.format(equipment.updateDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <th>创建时间</th>
+                    <td th:text="${#dates.format(equipment.createDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                </tr>
+                <tr>
+                    <th>备注</th>
+                    <td th:text="${equipment.remark}" colspan="3"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

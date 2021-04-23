@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="timo-detail-page">
+        <div class="timo-detail-title">基本信息</div>
+        <table class="layui-table timo-detail-table">
+            <colgroup>
+                <col width="100px"><col>
+                <col width="100px"><col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>主键ID</th>
+                    <td th:text="${physical.id}"></td>
+                    <th>标题</th>
+                    <td th:text="${physical.title}"></td>
+                </tr>
+                <tr>
+                    <th>身高</th>
+                    <td th:text="${physical.height}"></td>
+                    <th>体重</th>
+                    <td th:text="${physical.weight}"></td>
+                </tr>
+                <tr>
+                    <th>bmi</th>
+                    <td th:text="${physical.bmi}"></td>
+                    <th>脂肪</th>
+                    <td th:text="${physical.fat}"></td>
+                </tr>
+                <tr>
+                    <th>肌肉</th>
+                    <td th:text="${physical.muscle}"></td>
+                    <th>水分</th>
+                    <td th:text="${physical.moisture}"></td>
+                </tr>
+                <tr>
+                    <th>蛋白质</th>
+                    <td th:text="${physical.protein}"></td>
+                    <th>骨量</th>
+                    <td th:text="${physical.bone}"></td>
+                </tr>
+                <tr>
+                    <th>性别</th>
+                    <td th:text="${physical.sex}"></td>
+                    <th>年龄</th>
+                    <td th:text="${physical.age}"></td>
+                </tr>
+                <tr>
+                    <th>用户id</th>
+                    <td th:text="${physical.userId}" colspan="3"></td>
+                </tr>
+                <tr>
+                    <th>创建者</th>
+                    <td th:text="${physical.createBy?.nickname}"></td>
+                    <th>更新者</th>
+                    <td th:text="${physical.updateBy?.nickname}"></td>
+                </tr>
+                <tr>
+                    <th>创建时间</th>
+                    <td th:text="${#dates.format(physical.createDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <th>更新时间</th>
+                    <td th:text="${#dates.format(physical.updateDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                </tr>
+                <tr>
+                    <th>备注</th>
+                    <td th:text="${physical.remark}" colspan="3"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

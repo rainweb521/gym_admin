@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="layui-form timo-compile">
+    <form th:action="@{/survey/survey/save}">
+        <input type="hidden" name="type" th:value="${type}">
+        <input type="hidden" name="name" th:value="${name}">
+        <input type="hidden" name="id" th:if="${survey}" th:value="${survey.id}">
+<!--        <div class="layui-form-item">-->
+<!--            <label class="layui-form-label">课程或教练名称</label>-->
+<!--            <div class="layui-input-inline">-->
+<!--                <input class="layui-input" type="text" name="name" placeholder="请输入课程或教练名称" th:value="${survey?.name}">-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="title" placeholder="请输入标题" th:value="${survey?.title}">
+            </div>
+        </div>
+<!--        <div class="layui-form-item">-->
+<!--            <label class="layui-form-label">类型，教练还是课程</label>-->
+<!--            <div class="layui-input-inline">-->
+<!--                <input class="layui-input" type="text" name="type" placeholder="请输入类型，教练还是课程" th:value="${survey?.type}">-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">满意度</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="satisfaction" placeholder="请输入满意度" th:value="${survey?.satisfaction}">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">意见内容</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入意见内容" class="layui-textarea" name="content">[[${survey?.content}]]</textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="remark" placeholder="请输入备注" th:value="${survey?.remark}">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn ajax-submit"><i class="fa fa-check-circle"></i> 保存</button>
+            <button class="layui-btn btn-secondary close-popup"><i class="fa fa-times-circle"></i> 关闭</button>
+        </div>
+    </form>
+</div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

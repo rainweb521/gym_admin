@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="timo-detail-page">
+        <div class="timo-detail-title">基本信息</div>
+        <table class="layui-table timo-detail-table">
+            <colgroup>
+                <col width="100px"><col>
+                <col width="100px"><col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>主键ID</th>
+                    <td th:text="${survey.id}"></td>
+                    <th>课程或教练名称</th>
+                    <td th:text="${survey.name}"></td>
+                </tr>
+                <tr>
+                    <th>标题</th>
+                    <td th:text="${survey.title}"></td>
+                    <th>类型，教练还是课程</th>
+                    <td th:text="${survey.type}"></td>
+                </tr>
+                <tr>
+                    <th>满意度</th>
+                    <td th:text="${survey.satisfaction}"></td>
+                    <th>意见内容</th>
+                    <td th:text="${survey.content}"></td>
+                </tr>
+                <tr>
+                    <th>用户id</th>
+                    <td th:text="${survey.userId}" colspan="3"></td>
+                </tr>
+                <tr>
+                    <th>更新者</th>
+                    <td th:text="${survey.updateBy?.nickname}"></td>
+                    <th>创建者</th>
+                    <td th:text="${survey.createBy?.nickname}"></td>
+                </tr>
+                <tr>
+                    <th>更新时间</th>
+                    <td th:text="${#dates.format(survey.updateDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <th>创建时间</th>
+                    <td th:text="${#dates.format(survey.createDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                </tr>
+                <tr>
+                    <th>备注</th>
+                    <td th:text="${survey.remark}" colspan="3"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>
